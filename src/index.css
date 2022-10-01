@@ -1,0 +1,94 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --ease-in-circ: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-omg: cubic-bezier(1, 0, 1, 0);
+  --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
+  --ease-out-omg: cubic-bezier(0, 1, 0, 1);
+}
+
+body {
+  font-family: ten-mincho, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-shadow {
+  text-shadow: 0 0 4px darkgray;
+}
+
+.flicker {
+  animation: flicker 1.8s;
+}
+
+.fade-in {
+  animation: wait 1.8s, fadeIn 2s ease-in-out 1.8s;
+}
+
+.fade-in2 {
+  animation: fadeIn 8s ease-in-out;
+}
+
+@keyframes wait {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.85;
+    transition-timing-function: var(--ease-in-omg);
+  }
+  60% {
+    opacity: 0;
+    transition-timing-function: var(--ease-in-omg);
+  }
+  63% {
+    opacity: 0.85;
+    transition-timing-function: var(--ease-in-omg);
+  }
+  65% {
+    opacity: 0;
+    transition-timing-function: var(--ease-in-omg);
+  }
+  70% {
+    opacity: 0.95;
+    transition-timing-function: var(--ease-in-omg);
+  }
+  75% {
+    opacity: 0.15;
+    transition-timing-function: var(--ease-out-circ);
+  }
+  85% {
+    opacity: 0.95;
+    transition-timing-function: var(--ease-in-circ);
+  }
+  88%,
+  97% {
+    opacity: 0.3;
+    transition-timing-function: var(--ease-out-omg);
+  }
+  91%,
+  100% {
+    opacity: 1;
+    transition-timing-function: var(--ease-out-omg);
+  }
+}
